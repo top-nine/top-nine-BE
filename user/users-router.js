@@ -1,6 +1,7 @@
 const router = require("express").Router();
+const Users = require("../user/users-model");
 
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
   res.send("welcome to /users");
 });
 
