@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         {
           title: "3rd item",
           description: "3rd ever item added",
-          user_id: 4,
+          user_id: 2,
           image_url: "sggsege"
         }
       ]);
