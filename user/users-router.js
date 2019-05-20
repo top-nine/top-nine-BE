@@ -39,7 +39,7 @@ router.get("/add-top-nine", async (req, res) => {
       res.status(500).json({ message: "Please Fill in All Required Fields" });
     } else {
       const new9 = await TopNine.addItem(top9);
-      console.log(new9);
+      // console.log(new9);
     }
   } catch (error) {
     res.status(500).json(error);
