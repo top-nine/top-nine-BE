@@ -2,9 +2,10 @@ const db = require("../database/dbConfig");
 
 module.exports = {
   find,
-  findById,
+  findByEmail,
   addUser,
-  deleteUser
+  deleteUser,
+  findById
 };
 
 function find() {
@@ -13,6 +14,12 @@ function find() {
 function findById(id) {
   return db("Users").where({ id });
 }
+function findByEmail(email) {
+  return db("Users")
+    .select("*")
+    .where("email", "=", email);
+}
+
 function addUser(user) {
   return db("Users").insert(user, "id");
 }

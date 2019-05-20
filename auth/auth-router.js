@@ -24,14 +24,44 @@ router.post("/register", async (req, res) => {
       res.status(201).json({ message: "Success" });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 });
 
 // login
-router.post("/login", (req, res) => {
-  res.send("welcome to /login");
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    if (
+      email === "" ||
+      email === null ||
+      password === "" ||
+      password === null
+    ) {
+      res
+        .status(401)
+        .json({ message: "Please make sure login credentials are accurate" });
+    } else {
+      const user = await Users.findByEmail(email).first();
+      const token = generateToken(user);
+      res.status(200).json({ message: "Success", token });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
+
+function generateToken(user) {
+  const payload = {
+    name: user.name,
+    email: user.email
+  };
+
+  const options = {
+    expiresIn: "1h"
+  };
+
+  return jwt.sign(payload, secrets.jwtSecret, options);
+}
 
 module.exports = router;
