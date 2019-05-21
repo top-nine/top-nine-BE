@@ -10,6 +10,10 @@
 
     -returns logged in user along with their top nine items
 
+### GET /home/:id
+
+    -returns a single item for a logged in user
+
 ### GET /users
 
     -returns an array of users

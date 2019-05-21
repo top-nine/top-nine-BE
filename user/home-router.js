@@ -19,6 +19,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const singleItem = await TopNine.findOneById(req.params.id);
+    if (singleItem) {
+      res.status(200).json(singleItem);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.post("/add-top-nine", async (req, res) => {
   let top9 = req.body;
   try {
