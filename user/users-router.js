@@ -27,4 +27,23 @@ router.get("/:id/top-nine", async (req, res) => {
   }
 });
 
+router.get("/add-top-nine", async (req, res) => {
+  const top9 = req.body;
+  try {
+    if (
+      top9.title === "" ||
+      top9.title === null ||
+      top9.description === "" ||
+      top9.description === null
+    ) {
+      res.status(500).json({ message: "Please Fill in All Required Fields" });
+    } else {
+      const new9 = await TopNine.addItem(top9);
+      // console.log(new9);
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
