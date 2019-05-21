@@ -1,3 +1,4 @@
+// @ts-nocheck
 const router = require("express").Router();
 const Users = require("../user/users-model");
 const TopNine = require("./top-nine-model");
