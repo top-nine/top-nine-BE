@@ -12,7 +12,7 @@
 
 ### GET /users
 
-    -returns a list of users
+    -returns an array of users
 
 ### GET /users/:id
 
@@ -24,20 +24,42 @@
 
 ### POST /auth/register
 
-    -returns id of registered user
+    -input:
+        -name -Required
+        -email -Required
+        -password -Required
+
+    -returns success message
 
 ### POST /auth/login
+
+    -input:
+        -email -Required
+        -password -Required
 
     -returns a token
 
 ### POST /home/add-top-nine
 
+    -input:
+        -title -Required
+        -description -Required
+        -image_url
+
     -returns id of added item
 
 ### PUT /home/:id/edit-top-nine
 
+    -input:
+        -title -Required
+        -description -Required
+        -image_url
+
     -returns id of updated item
 
 ### DELETE /home/:id/delete-top-nine
+
+    -input:
+        -id -Require (id of the item)
 
     -returns confirmation that the item has been deleted
