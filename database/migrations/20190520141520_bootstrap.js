@@ -13,8 +13,8 @@ exports.up = function(knex, Promise) {
     .createTable("TopNine", tbl => {
       tbl.increments();
       tbl.string("title", 100).notNullable();
-      tbl.string("description", 255).notNullable();
-      tbl.string("image_url", 255);
+      tbl.string("description", 1000).notNullable();
+      tbl.string("image_url", 1000);
       tbl
         .integer("user_id")
         .unsigned()
