@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const secrets = require('../config/secrets');
 const Users = require('../user/users-model');
 
-// register
+//   register
 router.post('/register', async (req, res) => {
 	const user = req.body;
 	try {
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 	}
 });
 
-// login
+//   login
 router.post('/login', async (req, res) => {
 	const { email, password } = req.body;
 	try {
